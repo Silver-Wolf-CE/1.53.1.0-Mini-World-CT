@@ -162,12 +162,12 @@ je libiworld.dll+C25BB2
       <Description>"破解雲服部分地圖的自瞄限制"</Description>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>[ENABLE]
-libiworld.dll+C24106:
+libiworld.dll+C251AC:
 nop
 nop
 [DISABLE]
-libiworld.dll+C24106:
-jne libiworld.dll+C2410F
+libiworld.dll+C251AC:
+jne libiworld.dll+C251C0
 </AssemblerScript>
     </CheatEntry>
     <CheatEntry>
@@ -186,3 +186,4 @@ je libSandboxEngine.dll+FBC1FC
   </CheatEntries>
   <UserdefinedSymbols/>
 </CheatTable>
+
