@@ -260,15 +260,28 @@ dealloc(YSpeed)
     </CheatEntry>
     <CheatEntry>
       <ID>380108</ID>
-      <Description>"記憶體形式斷網"</Description>
+      <Description>"誰是槍神無敵(存活狀態卡死亡等待重生時間過去即可)"</Description>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>[ENABLE]
-libSandboxGame.dll+222E4A5:
-DB 75
-//74 xx E8 xx xx xx xx 6A 00 56
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+newmem:
+originalcode:
+pxor xmm0, xmm0
+movsd [eax],xmm0
+pop ebp
+exit:
+jmp returnhere
+libSandboxEngineDriver.dll+1CB32D:
+jmp newmem
+returnhere:
 [DISABLE]
-libSandboxGame.dll+222E4A5:
-DB 74
+dealloc(newmem)
+libSandboxEngineDriver.dll+1CB32D:
+db F2 0F 11 00 5D
+//55 8B EC 8B 45 08 F2 0F 10 00 8B 45 0C F2 0F 11 00 5D
 </AssemblerScript>
     </CheatEntry>
     <CheatEntry>
@@ -667,3 +680,4 @@ CreateThread(House)
   </CheatEntries>
   <UserdefinedSymbols/>
 </CheatTable>
+
