@@ -273,7 +273,7 @@ DB 74
     </CheatEntry>
     <CheatEntry>
       <ID>392264</ID>
-      <Description>"自我固定"</Description>
+      <Description>"自我固定(會導致無法取得Studio人物訊息)"</Description>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>[ENABLE]
 libSandboxEngine.dll+A07251:
@@ -309,10 +309,19 @@ libEngine.dll+7D639C:
 DB 0F 84 DD 02 00 00
 // 0F 84 xx xx xx xx 0F B7 xx xx 83 xx xx 0F 87
 </AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>113</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
     </CheatEntry>
     <CheatEntry>
       <ID>382692</ID>
-      <Description>"阻塞上傳日志(停用狀態會纍計指令,啓用狀態會一次性釋放指令)"</Description>
+      <Description>"弱網"</Description>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>[ENABLE]
 libSandboxEngine.dll+3C9C81:
@@ -325,7 +334,7 @@ DB 77
     </CheatEntry>
     <CheatEntry>
       <ID>392269</ID>
-      <Description>"臨時隱藏方塊貼圖"</Description>
+      <Description>"臨時隱藏方塊貼圖(透視)"</Description>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>[ENABLE]
 libEngine.dll+313E16:
@@ -603,6 +612,55 @@ end
               <ID>0</ID>
             </Hotkey>
           </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1807637687</ID>
+      <Description>"召喚坐騎函數(Studio地圖可以崩服哦)"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(House,80)
+registersymbol(House)
+alloc(HouseID,4)
+registersymbol(HouseID)
+House:
+push rdi
+push rax
+push rcx
+mov rdi,libSandboxGame.dll+34BB8FC
+mov rdi,[rdi]
+mov rdi,[rdi+15C]
+push [HouseID]//坐騎序列號
+mov rcx,rdi
+mov rax,[rdi]
+call dword ptr [rax+000008E4]
+pop rdi
+pop rax
+pop rcx
+ret
+[DISABLE]
+unregistersymbol(HouseID)
+dealloc(HouseID)
+unregistersymbol(House)
+dealloc(House)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1807637688</ID>
+          <Description>"請輸入您擁有的坐騎ID"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>HouseID</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807637689</ID>
+          <Description>"執行召喚坐騎(沒有坐騎或者沒選擇有的坐騎無效)"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+CreateThread(House)
+[DISABLE]
+</AssemblerScript>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
