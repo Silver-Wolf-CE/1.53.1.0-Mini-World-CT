@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1807637498</ID>
+      <Description>"殺戮初次化"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(Attack,100)
+registersymbol(Attack)
+alloc(mubiao,8)
+registersymbol(mubiao)
+Attack:
+push rcx
+push rax
+push rbx
+sub rsp,38
+mov rcx,libSandboxGame.dll+34BB8FC
+mov rcx,[RCX]
+push 00
+push 00
+push [mubiao]
+mov rax,[rcx]
+mov rax,[rax+34]
+call rax
+add rsp,38
+pop rbx
+pop rax
+pop rcx
+ret
+alloc(revive,80)
+registersymbol(revive)
+revive:
+push rsi
+push rax
+push rcx
+mov rsi,libSandboxGame.dll+34BB8FC
+mov rsi,[rsi]
+MOV rsi,[rsi+15C]
+MOV RAX,[rsi]
+push 0
+mov Rax,[Rax+00000858]
+push -1
+push 0
+push 0//重生方式
+mov Rcx,Rsi
+call Rax
+pop rsi
+pop rax
+pop rcx
+ret
+
+[DISABLE]
+unregistersymbol(revive)
+dealloc(revive)
+unregistersymbol(mubiao)
+dealloc(mubiao)
+unregistersymbol(Attack)
+dealloc(Attack)
+//Function Address 55 8B EC 6A FF 68 xx xx xx xx 64 A1 00 00 00 00 50 83 EC 70 A1 xx xx xx xx 33 C5 89 45 F0 53 56 57 50 8D 45 F4 64 A3 00 00 00 00 8B F1
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1</ID>
+          <Description>"啓動殺戮(隊伍判斷)"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$Lua}
+if syntaxcheck then return end
+
+[ENABLE]
+if _scan_index == nil then
+  _scan_index = 1  -- 從1開始
+end
+
+LeftsuperLuaScanThread = createNativeThread(function (thread)
+  thread.freeOnTerminate(false)
+  thread.Name = 'Player_Scan_thread'
+
+  while not thread.Terminated do
+    -- 獲取玩家數量
+    local Number_of_players = readInteger("[libSandboxEngine.dll+1863938]+4")
+
+    if Number_of_players and Number_of_players &gt; 1 then
+      -- 獲取玩家列表指針
+      local playerList = readInteger("[[[[[libSandboxEngine.dll+19A6B20]+1C4]+4]+14]+158]+18")
+
+      if playerList and playerList ~= 0 then
+        -- 獲取玩家自己的陣營值
+        local SelfFaction = readInteger("[[[libSandboxGame.dll+34BB8FC]+15C]+15C]+24") or 0
+
+        -- 讀取玩家自己位置
+        local playerBase = readInteger("[[libSandboxGame.dll+34BB8FC]+15C]+68")
+        local playerX, playerY, playerZ = 0, 0, 0
+        if playerBase then
+          local playerX_unsigned = readInteger(playerBase + 0x298) or 0
+          local playerY_unsigned = readInteger(playerBase + 0x29C) or 0
+          local playerZ_unsigned = readInteger(playerBase + 0x2A0) or 0
+
+          -- 32位無符號轉有符號（坐標是4位元組）
+          if playerX_unsigned &gt; 2147483647 then
+            playerX = playerX_unsigned - 4294967296
+          else
+            playerX = playerX_unsigned
+          end
+
+          if playerY_unsigned &gt; 2147483647 then
+            playerY = playerY_unsigned - 4294967296
+          else
+            playerY = playerY_unsigned
+          end
+
+          if playerZ_unsigned &gt; 2147483647 then
+            playerZ = playerZ_unsigned - 4294967296
+          else
+            playerZ = playerZ_unsigned
+          end
+        end
+
+        local current_index = _scan_index
+        local enemyInstance = readInteger(playerList + current_index * 4)
+
+        if enemyInstance and enemyInstance ~= 0 then
+          -- 讀取敵人陣營
+          local EnemyCampPtr = readInteger(enemyInstance + 0x15C)
+          local EnemyFaction = 0
+
+          if EnemyCampPtr and EnemyCampPtr ~= 0 then
+            EnemyFaction = readInteger(EnemyCampPtr + 0x24) or 0
+          end
+
+          -- 讀取敵人血量
+          local EnemyHPPtr = readInteger(enemyInstance + 0xC8)
+          local EnemyHP = 0
+
+          if EnemyHPPtr and EnemyHPPtr ~= 0 then
+            EnemyHP = readFloat(EnemyHPPtr + 0x24) or 0
+          end
+
+          -- 檢查HP是否有效且大於0
+          if EnemyHP and EnemyHP &gt; 0.00 then
+            -- 陣營判斷邏輯
+            local isEnemy = false
+
+            if SelfFaction == 0 then
+              isEnemy = true
+            elseif EnemyFaction and EnemyFaction ~= SelfFaction then
+              isEnemy = true
+            end
+
+            if isEnemy then
+              -- 讀取敵人位置
+              local locationPtr = readInteger(enemyInstance + 0x68)
+
+              if locationPtr and locationPtr ~= 0 then
+                -- 讀取敵人位置（坐標是4位元組）
+                local enemyX_unsigned = readInteger(locationPtr + 0x298) or 0
+                local enemyY_unsigned = readInteger(locationPtr + 0x29C) or 0
+                local enemyZ_unsigned = readInteger(locationPtr + 0x2A0) or 0
+
+                local enemyX, enemyY, enemyZ = 0, 0, 0
+
+                -- 32位無符號轉有符號
+                if enemyX_unsigned &gt; 2147483647 then
+                  enemyX = enemyX_unsigned - 4294967296
+                else
+                  enemyX = enemyX_unsigned
+                end
+
+                if enemyY_unsigned &gt; 2147483647 then
+                  enemyY = enemyY_unsigned - 4294967296
+                else
+                  enemyY = enemyY_unsigned
+                end
+
+                if enemyZ_unsigned &gt; 2147483647 then
+                  enemyZ = enemyZ_unsigned - 4294967296
+                else
+                  enemyZ = enemyZ_unsigned
+                end
+
+                -- 計算3D距離（包含XYZ三個維度）
+                local dx = enemyX - playerX
+                local dy = enemyY - playerY
+                local dz = enemyZ - playerZ
+                local distance3D = math.sqrt(dx*dx + dy*dy + dz*dz)
+
+                -- 檢查距離是否小於1000
+                if distance3D &lt;= 1000 then
+                  -- 再次檢查陣營是否相同，相同就不攻擊
+                  if EnemyFaction ~= SelfFaction then
+                    writeInteger("mubiao", enemyInstance)
+                    autoAssemble("createthread(Attack)")
+                  end
+                end
+              end
+            end
+          end
+        end
+
+        -- 更新索引
+        _scan_index = _scan_index + 1
+        if _scan_index &gt;= Number_of_players then
+          _scan_index = 1
+        end
+      end
+    end
+
+    sleep(3)
+  end
+end)
+
+[DISABLE]
+if LeftsuperLuaScanThread then
+  LeftsuperLuaScanThread.terminate()
+  LeftsuperLuaScanThread.waitfor()
+  LeftsuperLuaScanThread.destroy()
+  LeftsuperLuaScanThread = nil
+  _scan_index = nil
+end
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807637541</ID>
+          <Description>"自動復活"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$Lua}
+if syntaxcheck then return end
+
+[ENABLE]
+AutoRevive_thread = createNativeThread(function (thread)
+  thread.freeOnTerminate(false)
+  thread.Name = 'AutoRevive_thread'
+  while not thread.Terminated do
+  local Number_of_players = readInteger("[libSandboxEngine.dll+1863938]+4")
+if Number_of_players &gt; 0
+then
+autoAssemble("createthread(revive)")
+end
+  sleep(1000)
+  end
+end)
+
+[DISABLE]
+if AutoRevive_thread then -- kill thread
+   AutoRevive_thread.terminate()
+   AutoRevive_thread.waitfor()
+   AutoRevive_thread.destroy()
+   AutoRevive_thread=nil
+end
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807637546</ID>
+          <Description>"回環傳遞(敵人)"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$Lua}
+if syntaxcheck then return end
+
+[ENABLE]
+if _aim_index == nil then
+  _aim_index = 1
+end
+
+-- 將32位無符號整數轉換為有符號整數
+function toSigned32(value)
+    if value == nil then return 0 end
+    if value &gt; 2147483647 then
+        return value - 4294967296
+    end
+    return value
+end
+
+LeftsuperLuaAutoClickForTriggerbot_thread = createNativeThread(function (thread)
+  thread.freeOnTerminate(false)
+  thread.Name = 'Aimbot_thread'
+
+  while not thread.Terminated do
+    -- 獲取敵人數量
+    local enemyCount = readInteger("[libSandboxEngine.dll+1863938]+4")
+
+    -- 檢查是否有有效敵人
+    if enemyCount and enemyCount &gt; 1 then
+      -- 獲取玩家自己的實例
+      local selfInstance = readInteger("[libSandboxGame.dll+34BB8FC]+15C")
+      local SelfFaction = 0
+
+      -- 從玩家實例讀取陣營
+      if selfInstance and selfInstance ~= 0 then
+        local SelfCampPtr = readInteger(selfInstance + 0x15C)
+        if SelfCampPtr and SelfCampPtr ~= 0 then
+          SelfFaction = readInteger(SelfCampPtr + 0x24) or 0
+        end
+      end
+
+      -- 獲取敵人列表
+      local playerList = readInteger("[[[[[libSandboxEngine.dll+19A6B20]+1C4]+4]+14]+158]+18")
+
+      -- 檢查列表是否有效
+      if playerList and playerList ~= 0 then
+        local foundValidEnemy = false
+
+        -- 嘗試尋找有效敵人
+        local attempts = 0
+        local maxAttempts = math.min(enemyCount, 10)
+
+        while not foundValidEnemy and attempts &lt; maxAttempts and not thread.Terminated do
+          local enemyInstance = readInteger(playerList + _aim_index * 4)
+
+          if enemyInstance and enemyInstance ~= 0 then
+            -- 血量判斷
+            local EnemyHPPtr = readInteger(enemyInstance + 0xC8)
+            local EnemyHP = 100.0
+
+            if EnemyHPPtr and EnemyHPPtr ~= 0 then
+              EnemyHP = readFloat(EnemyHPPtr + 0x24) or 100.0
+            end
+
+            if EnemyHP &gt; 0.00 then
+              -- 陣營判斷 - 使用完整路徑讀取敵人陣營
+              local EnemyFaction = 0
+              local EnemyCampPtr = readInteger(enemyInstance + 0x15C)
+
+              if EnemyCampPtr and EnemyCampPtr ~= 0 then
+                EnemyFaction = readInteger(EnemyCampPtr + 0x24) or 0
+              end
+
+              local shouldAim = false
+
+              -- 調試輸出
+              if SelfFaction == 0 then
+                shouldAim = true
+              elseif EnemyFaction ~= SelfFaction then
+                shouldAim = true
+              end
+
+              -- 傳送邏輯
+              if shouldAim then
+                local locationPtr = readInteger(enemyInstance + 0x68)
+
+                if locationPtr and locationPtr ~= 0 then
+                  -- 讀取敵人位置
+                  local enemyX_unsigned = readInteger(locationPtr + 0x298) or 0
+                  local enemyY_unsigned = readInteger(locationPtr + 0x29C) or 0
+                  local enemyZ_unsigned = readInteger(locationPtr + 0x2A0) or 0
+
+                  local enemyX = toSigned32(enemyX_unsigned)
+                  local enemyY = toSigned32(enemyY_unsigned+200)
+                  local enemyZ = toSigned32(enemyZ_unsigned)
+
+                  -- 傳送到敵人位置
+                  writeInteger("[[[libSandboxGame.dll+34BB8FC]+15C]+68]+298", enemyX)
+                  writeInteger("[[[libSandboxGame.dll+34BB8FC]+15C]+68]+29C", enemyY)
+                  writeInteger("[[[libSandboxGame.dll+34BB8FC]+15C]+68]+2A0", enemyZ)
+
+                  foundValidEnemy = true
+                end
+              end
+            end
+          end
+
+          -- 切換到下一個目標
+          _aim_index = _aim_index + 1
+          if _aim_index &gt;= enemyCount then
+            _aim_index = 1
+          end
+
+          attempts = attempts + 1
+        end
+      end
+    end
+
+    sleep(250)--間隔
+  end
+end)
+
+[DISABLE]
+if LeftsuperLuaAutoClickForTriggerbot_thread then
+  LeftsuperLuaAutoClickForTriggerbot_thread.terminate()
+  LeftsuperLuaAutoClickForTriggerbot_thread.waitfor()
+  LeftsuperLuaAutoClickForTriggerbot_thread.destroy()
+  LeftsuperLuaAutoClickForTriggerbot_thread = nil
+  _aim_index = nil
+end
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

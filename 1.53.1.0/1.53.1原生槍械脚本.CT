@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1807637046</ID>
+      <Description>"槍械實例(展開看看)"</Description>
+      <Options moHideChildren="1"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1807637047</ID>
+          <Description>"槍械實例指標"</Description>
+          <ShowAsHex>1</ShowAsHex>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>libSandboxGame.dll+34BB8FC</Address>
+          <Offsets>
+            <Offset>24</Offset>
+            <Offset>95C</Offset>
+            <Offset>15C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807637048</ID>
+          <Description>"子彈數量"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>libSandboxGame.dll+34BB8FC</Address>
+          <Offsets>
+            <Offset>30</Offset>
+            <Offset>95C</Offset>
+            <Offset>15C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807637049</ID>
+          <Description>"擴散係數"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>libSandboxGame.dll+34BB8FC</Address>
+          <Offsets>
+            <Offset>34</Offset>
+            <Offset>95C</Offset>
+            <Offset>15C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807637050</ID>
+          <Description>"開鏡(75.0)"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>libSandboxGame.dll+34BB8FC</Address>
+          <Offsets>
+            <Offset>5C</Offset>
+            <Offset>95C</Offset>
+            <Offset>15C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807637687</ID>
+          <Description>"槍械名稱"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>String</VariableType>
+          <Length>10</Length>
+          <Unicode>0</Unicode>
+          <CodePage>0</CodePage>
+          <ZeroTerminate>1</ZeroTerminate>
+          <Address>libSandboxGame.dll+34BB8FC</Address>
+          <Offsets>
+            <Offset>4</Offset>
+            <Offset>24</Offset>
+            <Offset>95C</Offset>
+            <Offset>15C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807637051</ID>
+          <Description>"槍械射擊間隔"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>libSandboxGame.dll+34BB8FC</Address>
+          <Offsets>
+            <Offset>46</Offset>
+            <Offset>24</Offset>
+            <Offset>95C</Offset>
+            <Offset>15C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807637052</ID>
+          <Description>"槍械裝填時間"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>libSandboxGame.dll+34BB8FC</Address>
+          <Offsets>
+            <Offset>70</Offset>
+            <Offset>24</Offset>
+            <Offset>95C</Offset>
+            <Offset>15C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807637053</ID>
+          <Description>"槍械重量"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>libSandboxGame.dll+34BB8FC</Address>
+          <Offsets>
+            <Offset>7C</Offset>
+            <Offset>24</Offset>
+            <Offset>95C</Offset>
+            <Offset>15C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807637054</ID>
+          <Description>"槍械子彈模式"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>libSandboxGame.dll+34BB8FC</Address>
+          <Offsets>
+            <Offset>80</Offset>
+            <Offset>24</Offset>
+            <Offset>95C</Offset>
+            <Offset>15C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807637055</ID>
+          <Description>"槍械火力模式"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>libSandboxGame.dll+34BB8FC</Address>
+          <Offsets>
+            <Offset>84</Offset>
+            <Offset>24</Offset>
+            <Offset>95C</Offset>
+            <Offset>15C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807637056</ID>
+          <Description>"槍械發射的彈藥"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>libSandboxGame.dll+34BB8FC</Address>
+          <Offsets>
+            <Offset>88</Offset>
+            <Offset>24</Offset>
+            <Offset>95C</Offset>
+            <Offset>15C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807637057</ID>
+          <Description>"槍械子彈初速度加成"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>libSandboxGame.dll+34BB8FC</Address>
+          <Offsets>
+            <Offset>1F8</Offset>
+            <Offset>24</Offset>
+            <Offset>95C</Offset>
+            <Offset>15C</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1807637058</ID>
+      <Description>"無後座"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+libSandboxGame.dll+20791AC:
+DB 77
+[DISABLE]
+libSandboxGame.dll+20791AC:
+DB 76
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1807637059</ID>
+      <Description>"無擴散"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+newmem:
+originalcode:
+mov [rsi+34],0
+mulss xmm0,[rsi+34]
+exit:
+jmp returnhere
+libSandboxGame.dll+2079463:
+jmp newmem
+returnhere:
+[DISABLE]
+dealloc(newmem)
+libSandboxGame.dll+2079463:
+db F3 0F 59 46 34
+//mulss xmm0,[esi+34]
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1807637060</ID>
+      <Description>"快速裝填"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+newmem:
+originalcode:
+mov [rdi+70],0
+movss xmm0,[rdi+70]
+exit:
+jmp returnhere
+libSandboxEngine.dll+E4C26C:
+jmp newmem
+returnhere:
+[DISABLE]
+dealloc(newmem)
+libSandboxEngine.dll+E4C26C:
+db F3 0F 10 47 70
+//movss xmm0,[edi+70]
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1807637061</ID>
+      <Description>"全自動"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+newmem:
+originalcode:
+mov [rsi+84],1
+cmp dword ptr [rsi+84],02
+exit:
+jmp returnhere
+libSandboxGame.dll+2089E43:
+jmp newmem
+nop 2
+returnhere:
+[DISABLE]
+dealloc(newmem)
+libSandboxGame.dll+2089E43:
+db 83 BE 84 00 00 00 02
+//cmp dword ptr [esi+00000084],02
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

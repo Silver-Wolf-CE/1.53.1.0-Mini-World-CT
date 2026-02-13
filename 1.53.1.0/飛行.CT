@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1807637697</ID>
+      <Description>"直接飛行"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//從這裡到 '[DISABLE]' 的指令將被用來啟用作弊功能
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //這是已分配的記憶體，你具有存取、寫入、執行的權限
+//將您的指令放在這裡
+
+originalcode:
+pushad
+mov ecx,[libSandboxGame.dll+34BB8FC]
+mov ecx,[ecx+15C]
+push 01
+push 03
+call libSandboxGame.dll+1F697D0
+mov ecx,[libSandboxGame.dll+34BB8FC]
+mov ecx,[ecx+15C]
+mov [ecx+3C],0//不飛行
+//mov [ecx+3C],8//飛行
+popad
+mov eax,[ecx+3C]
+shr eax,03
+
+exit:
+jmp returnhere
+
+"libSandboxGame.dll"+13828A0:
+jmp newmem
+nop
+returnhere:
+
+
+
+
+[DISABLE]
+//從這裡到程式碼結尾的指令將用於禁用作弊
+dealloc(newmem)
+"libSandboxGame.dll"+13828A0:
+db 8B 41 3C C1 E8 03
+//mov eax,[ecx+3C]
+//shr eax,03
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1807637699</ID>
+      <Description>"速度"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>Float</VariableType>
+      <Address>libSandboxGame.dll+34BB8FC</Address>
+      <Offsets>
+        <Offset>4C</Offset>
+        <Offset>78</Offset>
+        <Offset>15C</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1807637700</ID>
+      <Description>"地面判斷"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>Byte</VariableType>
+      <Address>libSandboxGame.dll+34BB8FC</Address>
+      <Offsets>
+        <Offset>10C</Offset>
+        <Offset>68</Offset>
+        <Offset>15C</Offset>
+      </Offsets>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

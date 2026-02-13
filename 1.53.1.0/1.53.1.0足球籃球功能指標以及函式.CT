@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1807637700</ID>
+      <Description>"抓球冷卻"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>4 Bytes</VariableType>
+      <Address>libSandboxGame.dll+34BB8FC</Address>
+      <Offsets>
+        <Offset>100</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1807637692</ID>
+      <Description>"鏟球冷卻"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>4 Bytes</VariableType>
+      <Address>libSandboxGame.dll+34BB8FC</Address>
+      <Offsets>
+        <Offset>104</Offset>
+      </Offsets>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1807637691</ID>
+          <Description>"Tackle Function"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+ALLOC(Tackle,40)
+Createthread(Tackle)
+Tackle:
+push rcx
+push rax
+mov rcx,libSandboxGame.dll+34BB8FC
+mov rcx,[rcx]
+mov rcx,[rcx+15C]
+push rcx
+call libSandboxGame.dll+20AC640//Tackle
+add rsp,04
+pop rax
+pop rcx
+push rcx
+push rax
+mov rcx,libSandboxGame.dll+34BB8FC
+mov rcx,[rcx]
+mov rcx,[rcx+15C]
+push rcx
+call libSandboxGame.dll+20AC7E0//Tackle End
+add rsp,04
+pop rax
+pop rcx
+ret
+[DISABLE]
+dealloc(Tackle)
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1807637693</ID>
+      <Description>"蓋帽冷卻"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>4 Bytes</VariableType>
+      <Address>libSandboxGame.dll+34BB8FC</Address>
+      <Offsets>
+        <Offset>108</Offset>
+      </Offsets>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1807637694</ID>
+          <Description>"BlockShot Function"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+ALLOC(BlockShot,40)
+Createthread(BlockShot)
+BlockShot:
+push rcx
+push rax
+mov rcx,libSandboxGame.dll+34BB8FC
+mov rcx,[rcx]
+mov rcx,[rcx+15C]
+push rcx
+call libSandboxGame.dll+2097510
+add esp,04
+pop rax
+pop rcx
+push rcx
+push rax
+mov rcx,libSandboxGame.dll+34BB8FC
+mov rcx,[rcx]
+mov rcx,[rcx+15C]
+push rcx
+call libSandboxGame.dll+20AC7E0//Tackle End
+add esp,04
+pop rax
+pop rcx
+ret
+[DISABLE]
+dealloc(BlockShot)
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1807637697</ID>
+      <Description>"搶斷冷卻"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>4 Bytes</VariableType>
+      <Address>libSandboxGame.dll+34BB8FC</Address>
+      <Offsets>
+        <Offset>110</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1807637704</ID>
+      <Description>"FooBall KickBall 06 Function (吊球)"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(KickBall,80)
+createthread(KickBall)
+KickBall:
+pushad
+mov [rsi+F0],42C80000
+movss xmm0,[rsi+F0]//踢球力度
+mov rax,[libSandboxGame.dll+34BB8FC]
+mov rax,[rax+15C]
+push [rax+3FC]//這個是準星目標的實例,只需要壓入你需要的實例即可
+push rcx
+movss [rsp],xmm0
+push 06
+push rax//自己的實例
+call libSandboxGame.dll+20AC3D0
+add rsp,10
+popad
+ret
+[DISABLE]
+dealloc(KickBall)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1807637705</ID>
+      <Description>"FooBall KickBall 07 Function (傳球)"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(KickBall,80)
+createthread(KickBall)
+KickBall:
+pushad
+mov [rsi+F0],42C80000
+movss xmm0,[rsi+F0]//踢球力度
+mov rax,[libSandboxGame.dll+34BB8FC]
+mov rax,[rax+15C]
+push [rax+3FC]//這個是準星目標的實例,只需要壓入你需要的實例即可
+push rcx
+movss [rsp],xmm0
+push 07
+push rax//自己的實例
+call libSandboxGame.dll+20AC3D0
+add rsp,10
+popad
+ret
+[DISABLE]
+dealloc(KickBall)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1807637706</ID>
+      <Description>"Basket Ball OP Start Function"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(basketBallOPStart,80)
+createthread(basketBallOPStart)
+basketBallOPStart:
+pushad
+push 00
+push 10
+mov rax,libSandboxGame.dll+34BB8FC
+mov rax,[rax]
+push [rax+15C]
+call libSandboxGame.dll+2096E50
+add rsp,0C
+popad
+ret
+[DISABLE]
+dealloc(basketBallOPStart)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1807637707</ID>
+      <Description>"Basket Ball OP End Function"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(basketBallOPStart,80)
+createthread(basketBallOPStart)
+basketBallOPStart:
+pushad
+push 00
+push 11
+mov rax,libSandboxGame.dll+34BB8FC
+mov rax,[rax]
+push [rax+15C]
+call libSandboxGame.dll+2096E50
+add rsp,0C
+popad
+ret
+[DISABLE]
+dealloc(basketBallOPStart)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1807637698</ID>
+      <Description>"Basketball Run Function"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+ALLOC(BlockShot,80)
+registersymbol(BlockShot)
+BlockShot:
+push rcx
+push rax
+mov rcx,libSandboxGame.dll+34BB8FC
+mov rcx,[rcx]
+mov rcx,[rcx+15C]
+mov rbx,rcx
+mov rbx,libSandboxEngine.dll+19A6B20
+mov rbx,[rbx]
+mov RBX,[RBX+1C4]
+MOV RBX,[RBX+4]
+MOV RBX,[RBX+14]
+mov rbx,[RBX+158]
+MOV RBX,[RBX+10]
+MOV RBX,[RBX]
+MOV RBX,[RBX+4]
+push [RBX+18]
+push rcx
+call libSandboxGame.dll+20978D0
+add rsp,08
+pop rax
+pop rcx
+push rcx
+push rax
+mov rcx,libSandboxGame.dll+34BB8FC
+mov rcx,[rcx]
+mov rcx,[rcx+15C]
+push rcx
+call libSandboxGame.dll+20AC7E0//Tackle End
+add rsp,04
+pop rax
+pop rcx
+ret
+[DISABLE]
+dealloc(BlockShot)
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

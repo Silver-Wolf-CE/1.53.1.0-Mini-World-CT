@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1807637742</ID>
+      <Description>"窗口句柄HEX"</Description>
+      <ShowAsHex>1</ShowAsHex>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>4 Bytes</VariableType>
+      <Address>libEngine.dll+13A2C10</Address>
+      <Offsets>
+        <Offset>78</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1807637744</ID>
+      <Description>"窗口橫向寬度"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>4 Bytes</VariableType>
+      <Address>libEngine.dll+13A2C10</Address>
+      <Offsets>
+        <Offset>90</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1807637743</ID>
+      <Description>"窗口縱向寬度"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>4 Bytes</VariableType>
+      <Address>libEngine.dll+13A2C10</Address>
+      <Offsets>
+        <Offset>9C</Offset>
+      </Offsets>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

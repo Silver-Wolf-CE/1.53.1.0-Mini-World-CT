@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1807635860</ID>
+      <Description>"敌人数据"</Description>
+      <Options moHideChildren="1" moManualExpandCollapse="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <ShowAsSigned>1</ShowAsSigned>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1807635862</ID>
+          <Description>"敌人迷你号"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>libiworld.dll+169B900</Address>
+          <Offsets>
+            <Offset>0</Offset>
+            <Offset>0</Offset>
+            <Offset>74</Offset>
+            <Offset>78</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807635866</ID>
+          <Description>"敌人血量"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>libiworld.dll+169B900</Address>
+          <Offsets>
+            <Offset>10</Offset>
+            <Offset>0</Offset>
+            <Offset>74</Offset>
+            <Offset>78</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807635863</ID>
+          <Description>"敌人X坐标"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>libiworld.dll+169B900</Address>
+          <Offsets>
+            <Offset>14</Offset>
+            <Offset>0</Offset>
+            <Offset>74</Offset>
+            <Offset>78</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807635864</ID>
+          <Description>"敌人Y坐标"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>libiworld.dll+169B900</Address>
+          <Offsets>
+            <Offset>18</Offset>
+            <Offset>0</Offset>
+            <Offset>74</Offset>
+            <Offset>78</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807635865</ID>
+          <Description>"敌人Z坐标"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>libiworld.dll+169B900</Address>
+          <Offsets>
+            <Offset>1C</Offset>
+            <Offset>0</Offset>
+            <Offset>74</Offset>
+            <Offset>78</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807635868</ID>
+          <Description>"敌人星球       迷拉星&lt;0&gt; 烈焰星&lt;1&gt; 萌眼星&lt;2&gt;"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>libiworld.dll+169B900</Address>
+          <Offsets>
+            <Offset>20</Offset>
+            <Offset>0</Offset>
+            <Offset>74</Offset>
+            <Offset>78</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807635867</ID>
+          <Description>"敌人队伍"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>libiworld.dll+169B900</Address>
+          <Offsets>
+            <Offset>24</Offset>
+            <Offset>0</Offset>
+            <Offset>74</Offset>
+            <Offset>78</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807635861</ID>
+          <Description>"敌人名称"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>String</VariableType>
+          <Length>30</Length>
+          <Unicode>0</Unicode>
+          <CodePage>0</CodePage>
+          <ZeroTerminate>1</ZeroTerminate>
+          <Address>libiworld.dll+169B900</Address>
+          <Offsets>
+            <Offset>38</Offset>
+            <Offset>0</Offset>
+            <Offset>74</Offset>
+            <Offset>78</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807637703</ID>
+          <Description>"敌人小地图显示 1显示,0不显示"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>libiworld.dll+169B900</Address>
+          <Offsets>
+            <Offset>534</Offset>
+            <Offset>0</Offset>
+            <Offset>74</Offset>
+            <Offset>78</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

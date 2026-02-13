@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1807637742</ID>
+      <Description>"窗口句柄HEX"</Description>
+      <ShowAsHex>1</ShowAsHex>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>4 Bytes</VariableType>
+      <Address>libEngine.dll+13A2C10</Address>
+      <Offsets>
+        <Offset>78</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1807637752</ID>
+      <Description>"窗口全熒幕寬度(用於計算比例)"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>4 Bytes</VariableType>
+      <Address>libEngine.dll+13A2C10</Address>
+      <Offsets>
+        <Offset>88</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1807637743</ID>
+      <Description>"窗口全屏縱向寬度"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>4 Bytes</VariableType>
+      <Address>libEngine.dll+13A2C10</Address>
+      <Offsets>
+        <Offset>8C</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1807637744</ID>
+      <Description>"窗口橫向寬度"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>4 Bytes</VariableType>
+      <Address>libEngine.dll+13A2C10</Address>
+      <Offsets>
+        <Offset>90</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1807637751</ID>
+      <Description>"窗口縱向寬度"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>4 Bytes</VariableType>
+      <Address>libEngine.dll+13A2C10</Address>
+      <Offsets>
+        <Offset>9C</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1807637745</ID>
+      <Description>"根据名字获取窗口客户区坐标"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+// 搜索的窗口名字
+alloc(form_name,$100)
+form_name:
+dw 'QQ',0
+registersymbol(form_name)
+
+// 输出到这里
+alloc(form_xy,$10)
+form_xy:
+dd 0,0,0,0
+registersymbol(form_xy)
+
+// 写入代码
+alloc(form_code,$1000)
+createthread(form_code)
+
+form_code:
+
+  push rbx
+  sub rsp,30
+
+label0:
+
+  mov rdx,form_name
+  xor ecx,ecx
+  call FindWindowW
+  mov rbx,rax
+
+  test rax,rax
+  je label1
+
+  lea rdx,[rsp+20]
+  mov rcx,rbx
+  call GetClientRect
+
+  lea rdx,[rsp+40]
+  mov qword ptr [rsp+40],00000000
+  mov rcx,rbx
+  call ClientToScreen
+
+  mov eax,[rsp+40]
+  mov [form_xy+00],eax
+  mov eax,[rsp+44]
+  mov [form_xy+04],eax
+  mov eax,[rsp+28]
+  mov [form_xy+08],eax
+  mov eax,[rsp+2C]
+  mov [form_xy+0C],eax
+
+label1:
+
+  mov rcx,#100
+  call Sleep
+
+// 将这里替换为结束
+label2:
+
+  jmp label0
+
+[DISABLE]
+
+// 替换为结束
+label2:
+
+  add rsp,30
+  pop rbx
+  ret
+
+unregistersymbol(*)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1807637746</ID>
+          <Description>"窗口名字"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>String</VariableType>
+          <Length>256</Length>
+          <Unicode>1</Unicode>
+          <CodePage>0</CodePage>
+          <ZeroTerminate>1</ZeroTerminate>
+          <Address>form_name</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807637747</ID>
+          <Description>"起始x"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>form_xy+00</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807637748</ID>
+          <Description>"起始y"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>form_xy+04</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807637749</ID>
+          <Description>"大小x"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>form_xy+08</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807637750</ID>
+          <Description>"大小y"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>form_xy+0C</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>6</ID>
+      <Description>"根据名字获取窗口客户区坐标 x86"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+// 搜索的窗口名字
+alloc(form_name,$100)
+form_name:
+dw '迷你世界',0
+registersymbol(form_name)
+
+// 输出到这里
+alloc(form_xy,$10)
+form_xy:
+dd 0,0,0,0
+registersymbol(form_xy)
+
+// 写入代码
+alloc(form_code,$1000)
+createthread(form_code)
+
+form_code:
+
+  push ebp
+  mov ebp,esp
+  sub esp,18
+  push esi
+  push edi
+
+label0:
+
+  push form_name
+  push 00
+  call FindWindowW
+  mov esi,eax
+
+  lea edi,[ebp-18]
+  xor eax,eax
+  stosd
+  stosd
+  stosd
+  stosd
+
+  lea eax,[ebp-18]
+  push eax
+  push esi
+  call GetClientRect
+
+  lea eax,[ebp-08]
+  mov [ebp-08],00000000
+  mov [ebp-04],00000000
+  push eax
+  push esi
+  call ClientToScreen
+
+  mov eax,[ebp-08]
+  mov [form_xy+00],eax
+  mov eax,[ebp-04]
+  mov [form_xy+04],eax
+  mov eax,[ebp-10]
+  sub eax,[ebp-18]
+  mov [form_xy+08],eax
+  mov eax,[ebp-0C]
+  sub eax,[ebp-14]
+  mov [form_xy+0C],eax
+
+  push #100
+  call Sleep
+
+// 将这里替换为结束
+label2:
+
+  jmp label0
+
+[DISABLE]
+
+// 替换为结束
+label2:
+
+  xor eax,eax
+  pop edi
+  pop esi
+  leave
+  ret
+
+unregistersymbol(*)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>7</ID>
+          <Description>"窗口名字"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>String</VariableType>
+          <Length>256</Length>
+          <Unicode>1</Unicode>
+          <CodePage>0</CodePage>
+          <ZeroTerminate>1</ZeroTerminate>
+          <Address>form_name</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>8</ID>
+          <Description>"起始x"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>form_xy+00</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9</ID>
+          <Description>"起始y"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>form_xy+04</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10</ID>
+          <Description>"大小x"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>form_xy+08</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11</ID>
+          <Description>"大小y"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>form_xy+0C</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
