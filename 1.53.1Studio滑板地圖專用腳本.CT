@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1807619683</ID>
+      <Description>"快速过关初始化"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//跳轉起步 74 xx 8D 85 xx xx xx xx 50 E8 xx xx xx xx 0F 28 95 xx xx xx xx 0F
+// 0F 10 00 8B 46 xx 0F 29 45 xx 8B xx xx 83 F8 FF
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+alloc(zhenshiweizhi,4)
+registersymbol(zhenshiweizhi)
+newmem:
+originalcode:
+mov [zhenshiweizhi],eax
+movups xmm0,[eax]
+mov eax,[esi+40]
+exit:
+jmp returnhere
+libEngine.dll+3F5130:
+jmp newmem
+nop
+returnhere:
+[DISABLE]
+unregistersymbol(zhenshiweizhi)
+dealloc(zhenshiweizhi)
+dealloc(newmem)
+libEngine.dll+3F5130:
+db 0F 10 00 8B 46 40
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1807619695</ID>
+          <Description>"第一張圖快速跑完全程(城市街道)"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+{$Lua}
+local jiange = 140
+writeFloat("[zhenshiweizhi]+0",-18830.00)
+writeFloat("[zhenshiweizhi]+4",265.00)
+writeFloat("[zhenshiweizhi]+8",79992.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-53212.00)
+writeFloat("[zhenshiweizhi]+4",283.00)
+writeFloat("[zhenshiweizhi]+8",80006.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-85810.00)
+writeFloat("[zhenshiweizhi]+4",660.00)
+writeFloat("[zhenshiweizhi]+8",80079.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-116800.00)
+writeFloat("[zhenshiweizhi]+4",1016.00)
+writeFloat("[zhenshiweizhi]+8",80298.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-146870.00)
+writeFloat("[zhenshiweizhi]+4",1048.00)
+writeFloat("[zhenshiweizhi]+8",80348.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-197154.00)
+writeFloat("[zhenshiweizhi]+4",1348.00)
+writeFloat("[zhenshiweizhi]+8",80340.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-275679.00)
+writeFloat("[zhenshiweizhi]+4",2744.00)
+writeFloat("[zhenshiweizhi]+8",81227.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-334112.00)
+writeFloat("[zhenshiweizhi]+4",2087.00)
+writeFloat("[zhenshiweizhi]+8",80884.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-404678.00)
+writeFloat("[zhenshiweizhi]+4",3149.00)
+writeFloat("[zhenshiweizhi]+8",81202.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-460750.00)
+writeFloat("[zhenshiweizhi]+4",3878.00)
+writeFloat("[zhenshiweizhi]+8",81366.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-526229.00)
+writeFloat("[zhenshiweizhi]+4",1110.00)
+writeFloat("[zhenshiweizhi]+8",81702.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-580174.00)
+writeFloat("[zhenshiweizhi]+4",2123.00)
+writeFloat("[zhenshiweizhi]+8",81990.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-633848.00)
+writeFloat("[zhenshiweizhi]+4",1920.00)
+writeFloat("[zhenshiweizhi]+8",81885.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-673825.00)
+writeFloat("[zhenshiweizhi]+4",2480.00)
+writeFloat("[zhenshiweizhi]+8",82000.00)
+[DISABLE]
+
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>81</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807619697</ID>
+          <Description>"第二張圖快速跑完全程(冰雪世界)"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+{$Lua}
+local jiange = 140
+writeFloat("[zhenshiweizhi]+0",-16298.00)
+writeFloat("[zhenshiweizhi]+4",28.00)
+writeFloat("[zhenshiweizhi]+8",119980.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-82651.00)
+writeFloat("[zhenshiweizhi]+4",-521.00)
+writeFloat("[zhenshiweizhi]+8",120737.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-128013.00)
+writeFloat("[zhenshiweizhi]+4",447.00)
+writeFloat("[zhenshiweizhi]+8",121040.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-199568.00)
+writeFloat("[zhenshiweizhi]+4",468.00)
+writeFloat("[zhenshiweizhi]+8",120846.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-256338.00)
+writeFloat("[zhenshiweizhi]+4",202.00)
+writeFloat("[zhenshiweizhi]+8",120491.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-312476.00)
+writeFloat("[zhenshiweizhi]+4",2092.00)
+writeFloat("[zhenshiweizhi]+8",120401.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-381870.00)
+writeFloat("[zhenshiweizhi]+4",2225.00)
+writeFloat("[zhenshiweizhi]+8",120557.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-449949.00)
+writeFloat("[zhenshiweizhi]+4",3676.00)
+writeFloat("[zhenshiweizhi]+8",121867.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-509243.00)
+writeFloat("[zhenshiweizhi]+4",2750.00)
+writeFloat("[zhenshiweizhi]+8",121915.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-566204.00)
+writeFloat("[zhenshiweizhi]+4",2758.00)
+writeFloat("[zhenshiweizhi]+8",122124.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-614028.00)
+writeFloat("[zhenshiweizhi]+4",3392.00)
+writeFloat("[zhenshiweizhi]+8",125130.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-675690.00)
+writeFloat("[zhenshiweizhi]+4",455.00)
+writeFloat("[zhenshiweizhi]+8",125111.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-735733.00)
+writeFloat("[zhenshiweizhi]+4",1824.00)
+writeFloat("[zhenshiweizhi]+8",124889.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-793833.00)
+writeFloat("[zhenshiweizhi]+4",2115.00)
+writeFloat("[zhenshiweizhi]+8",125103.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-858337.00)
+writeFloat("[zhenshiweizhi]+4",2148.00)
+writeFloat("[zhenshiweizhi]+8",123185.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-909597.00)
+writeFloat("[zhenshiweizhi]+4",2631.00)
+writeFloat("[zhenshiweizhi]+8",123710.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-965024.00)
+writeFloat("[zhenshiweizhi]+4",1378.00)
+writeFloat("[zhenshiweizhi]+8",124174.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-1018914.00)
+writeFloat("[zhenshiweizhi]+4",1017.00)
+writeFloat("[zhenshiweizhi]+8",124633.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-1089054.00)
+writeFloat("[zhenshiweizhi]+4",721.00)
+writeFloat("[zhenshiweizhi]+8",124906.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-1148566.00)
+writeFloat("[zhenshiweizhi]+4",875.00)
+writeFloat("[zhenshiweizhi]+8",125758.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-1208387.00)
+writeFloat("[zhenshiweizhi]+4",1619.00)
+writeFloat("[zhenshiweizhi]+8",126867.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-1274060.00)
+writeFloat("[zhenshiweizhi]+4",1638.00)
+writeFloat("[zhenshiweizhi]+8",127335.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-1294695.00)
+writeFloat("[zhenshiweizhi]+4",-160.00)
+writeFloat("[zhenshiweizhi]+8",127720.00)
+[DISABLE]
+
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey Active="0">
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>81</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807619698</ID>
+          <Description>"第三張圖快速跑完全程(機械迷城)"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+{$Lua}
+local jiange = 140
+writeFloat("[zhenshiweizhi]+0",-19137.00)
+writeFloat("[zhenshiweizhi]+4",98.00)
+writeFloat("[zhenshiweizhi]+8",160004.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-76593.00)
+writeFloat("[zhenshiweizhi]+4",109.00)
+writeFloat("[zhenshiweizhi]+8",160139.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-133746.00)
+writeFloat("[zhenshiweizhi]+4",1863.00)
+writeFloat("[zhenshiweizhi]+8",160077.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-191116.00)
+writeFloat("[zhenshiweizhi]+4",284.00)
+writeFloat("[zhenshiweizhi]+8",160093.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-252753.00)
+writeFloat("[zhenshiweizhi]+4",349.00)
+writeFloat("[zhenshiweizhi]+8",160583.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-303921.00)
+writeFloat("[zhenshiweizhi]+4",1373.00)
+writeFloat("[zhenshiweizhi]+8",161463.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-355198.00)
+writeFloat("[zhenshiweizhi]+4",1291.00)
+writeFloat("[zhenshiweizhi]+8",161443.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-411153.00)
+writeFloat("[zhenshiweizhi]+4",3601.00)
+writeFloat("[zhenshiweizhi]+8",161352.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-462788.00)
+writeFloat("[zhenshiweizhi]+4",3224.00)
+writeFloat("[zhenshiweizhi]+8",162276.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-511140.00)
+writeFloat("[zhenshiweizhi]+4",3240.00)
+writeFloat("[zhenshiweizhi]+8",163052.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-570866.00)
+writeFloat("[zhenshiweizhi]+4",2484.00)
+writeFloat("[zhenshiweizhi]+8",162493.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-616726.00)
+writeFloat("[zhenshiweizhi]+4",1707.00)
+writeFloat("[zhenshiweizhi]+8",162889.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-674400.00)
+writeFloat("[zhenshiweizhi]+4",2846.00)
+writeFloat("[zhenshiweizhi]+8",163860.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-729679.00)
+writeFloat("[zhenshiweizhi]+4",2818.00)
+writeFloat("[zhenshiweizhi]+8",163654.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-777783.00)
+writeFloat("[zhenshiweizhi]+4",2830.00)
+writeFloat("[zhenshiweizhi]+8",163543.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-833608.00)
+writeFloat("[zhenshiweizhi]+4",4229.00)
+writeFloat("[zhenshiweizhi]+8",164428.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-887395.00)
+writeFloat("[zhenshiweizhi]+4",4577.00)
+writeFloat("[zhenshiweizhi]+8",163704.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-926450.00)
+writeFloat("[zhenshiweizhi]+4",4217.00)
+writeFloat("[zhenshiweizhi]+8",163771.00)
+[DISABLE]
+
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey Active="0">
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>81</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807619699</ID>
+          <Description>"第四張圖快速跑完全程(廢棄之地)"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+{$Lua}
+local jiange = 140
+writeFloat("[zhenshiweizhi]+0",-19387.00)
+writeFloat("[zhenshiweizhi]+4",-187.00)
+writeFloat("[zhenshiweizhi]+8",199968.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-87099.00)
+writeFloat("[zhenshiweizhi]+4",766.00)
+writeFloat("[zhenshiweizhi]+8",201143.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-180369.00)
+writeFloat("[zhenshiweizhi]+4",829.00)
+writeFloat("[zhenshiweizhi]+8",201291.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-277527.00)
+writeFloat("[zhenshiweizhi]+4",3186.00)
+writeFloat("[zhenshiweizhi]+8",200988.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-352794.00)
+writeFloat("[zhenshiweizhi]+4",110.00)
+writeFloat("[zhenshiweizhi]+8",200465.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-429007.00)
+writeFloat("[zhenshiweizhi]+4",95.00)
+writeFloat("[zhenshiweizhi]+8",201200.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-510045.00)
+writeFloat("[zhenshiweizhi]+4",942.00)
+writeFloat("[zhenshiweizhi]+8",201647.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-574286.00)
+writeFloat("[zhenshiweizhi]+4",416.00)
+writeFloat("[zhenshiweizhi]+8",200661.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-639380.00)
+writeFloat("[zhenshiweizhi]+4",420.00)
+writeFloat("[zhenshiweizhi]+8",200232.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-719833.00)
+writeFloat("[zhenshiweizhi]+4",752.00)
+writeFloat("[zhenshiweizhi]+8",200260.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-788727.00)
+writeFloat("[zhenshiweizhi]+4",938.00)
+writeFloat("[zhenshiweizhi]+8",200453.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-869169.00)
+writeFloat("[zhenshiweizhi]+4",5262.00)
+writeFloat("[zhenshiweizhi]+8",200528.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-947124.00)
+writeFloat("[zhenshiweizhi]+4",5192.00)
+writeFloat("[zhenshiweizhi]+8",199029.00)
+[DISABLE]
+
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey Active="0">
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>81</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807619700</ID>
+          <Description>"第五張圖快速跑完全程(永凍冰川)"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+{$Lua}
+local jiange = 140
+writeFloat("[zhenshiweizhi]+0",-27620.00)
+writeFloat("[zhenshiweizhi]+4",-21.00)
+writeFloat("[zhenshiweizhi]+8",239676.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-111997.00)
+writeFloat("[zhenshiweizhi]+4",815.00)
+writeFloat("[zhenshiweizhi]+8",240590.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-199891.00)
+writeFloat("[zhenshiweizhi]+4",2979.00)
+writeFloat("[zhenshiweizhi]+8",240577.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-285874.00)
+writeFloat("[zhenshiweizhi]+4",1744.00)
+writeFloat("[zhenshiweizhi]+8",240615.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-374644.00)
+writeFloat("[zhenshiweizhi]+4",-1797.00)
+writeFloat("[zhenshiweizhi]+8",241603.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-471743.00)
+writeFloat("[zhenshiweizhi]+4",2235.00)
+writeFloat("[zhenshiweizhi]+8",242178.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-554370.00)
+writeFloat("[zhenshiweizhi]+4",8053.00)
+writeFloat("[zhenshiweizhi]+8",242012.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-652704.00)
+writeFloat("[zhenshiweizhi]+4",2667.00)
+writeFloat("[zhenshiweizhi]+8",241696.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-744291.00)
+writeFloat("[zhenshiweizhi]+4",-1551.00)
+writeFloat("[zhenshiweizhi]+8",241104.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-847705.00)
+writeFloat("[zhenshiweizhi]+4",-695.00)
+writeFloat("[zhenshiweizhi]+8",241239.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-929796.00)
+writeFloat("[zhenshiweizhi]+4",4031.00)
+writeFloat("[zhenshiweizhi]+8",239921.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-1044677.00)
+writeFloat("[zhenshiweizhi]+4",4401.00)
+writeFloat("[zhenshiweizhi]+8",240673.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-1152788.00)
+writeFloat("[zhenshiweizhi]+4",4379.00)
+writeFloat("[zhenshiweizhi]+8",239832.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-1258343.00)
+writeFloat("[zhenshiweizhi]+4",441.00)
+writeFloat("[zhenshiweizhi]+8",241592.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-1343954.00)
+writeFloat("[zhenshiweizhi]+4",2906.00)
+writeFloat("[zhenshiweizhi]+8",241682.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-1447147.00)
+writeFloat("[zhenshiweizhi]+4",6629.00)
+writeFloat("[zhenshiweizhi]+8",241992.00)
+[DISABLE]
+
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey Active="0">
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>81</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1807619701</ID>
+          <Description>"第六張圖快速跑完全程(天空之城)"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+{$Lua}
+local jiange = 140
+writeFloat("[zhenshiweizhi]+0",-18718.00)
+writeFloat("[zhenshiweizhi]+4",-20.00)
+writeFloat("[zhenshiweizhi]+8",280186.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-81596.00)
+writeFloat("[zhenshiweizhi]+4",908.00)
+writeFloat("[zhenshiweizhi]+8",280321.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-138983.00)
+writeFloat("[zhenshiweizhi]+4",1667.00)
+writeFloat("[zhenshiweizhi]+8",279354.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-200394.00)
+writeFloat("[zhenshiweizhi]+4",33.00)
+writeFloat("[zhenshiweizhi]+8",279270.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-286271.00)
+writeFloat("[zhenshiweizhi]+4",1117.00)
+writeFloat("[zhenshiweizhi]+8",279245.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-350472.00)
+writeFloat("[zhenshiweizhi]+4",2049.00)
+writeFloat("[zhenshiweizhi]+8",279492.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-417952.00)
+writeFloat("[zhenshiweizhi]+4",1520.00)
+writeFloat("[zhenshiweizhi]+8",280271.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-487266.00)
+writeFloat("[zhenshiweizhi]+4",843.00)
+writeFloat("[zhenshiweizhi]+8",280533.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-563121.00)
+writeFloat("[zhenshiweizhi]+4",3783.00)
+writeFloat("[zhenshiweizhi]+8",280355.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-639711.00)
+writeFloat("[zhenshiweizhi]+4",3786.00)
+writeFloat("[zhenshiweizhi]+8",279723.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-722764.00)
+writeFloat("[zhenshiweizhi]+4",3680.00)
+writeFloat("[zhenshiweizhi]+8",279612.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-798558.00)
+writeFloat("[zhenshiweizhi]+4",4648.00)
+writeFloat("[zhenshiweizhi]+8",280606.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-863927.00)
+writeFloat("[zhenshiweizhi]+4",9899.00)
+writeFloat("[zhenshiweizhi]+8",279583.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-934278.00)
+writeFloat("[zhenshiweizhi]+4",9917.00)
+writeFloat("[zhenshiweizhi]+8",279788.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-1030038.00)
+writeFloat("[zhenshiweizhi]+4",10023.00)
+writeFloat("[zhenshiweizhi]+8",279708.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-1096526.00)
+writeFloat("[zhenshiweizhi]+4",9978.00)
+writeFloat("[zhenshiweizhi]+8",278613.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-1155897.00)
+writeFloat("[zhenshiweizhi]+4",10002.00)
+writeFloat("[zhenshiweizhi]+8",279586.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-1234483.00)
+writeFloat("[zhenshiweizhi]+4",13104.00)
+writeFloat("[zhenshiweizhi]+8",279425.00)
+sleep(jiange)
+writeFloat("[zhenshiweizhi]+0",-1298534.00)
+writeFloat("[zhenshiweizhi]+4",13025.00)
+writeFloat("[zhenshiweizhi]+8",278663.00)
+[DISABLE]
+
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey Active="0">
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>81</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
