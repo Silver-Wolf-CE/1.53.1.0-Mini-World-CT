@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"自動射擊(1啓用,0禁用)"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>Byte</VariableType>
+      <Address>libiworld.dll+16E6D90</Address>
+      <Offsets>
+        <Offset>10</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"瞄準進度"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>4 Bytes</VariableType>
+      <Address>libEngine.dll+138DC00</Address>
+      <Offsets>
+        <Offset>34</Offset>
+        <Offset>C</Offset>
+        <Offset>28</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7</ID>
+      <Description>"瞄準倒計時"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>Float</VariableType>
+      <Address>libEngine.dll+138DC00</Address>
+      <Offsets>
+        <Offset>44</Offset>
+        <Offset>C</Offset>
+        <Offset>28</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>6</ID>
+      <Description>"快速瞄準(範圍指示和有目標指示)"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem2,2048)
+label(returnhere2)
+label(originalcode2)
+label(exit2)
+
+newmem2: //這是已分配的記憶體，你具有存取、寫入、執行的權限
+//將您的指令放在這裡
+
+originalcode2:
+mov edx,[edi+34]
+pushad
+push 00
+push 01//樣式
+mov ecx,[libEngine.dll+138DC00]
+MOV ECX,[ECX+28]
+MOV ECX,[ECX+C]
+call libiworld.dll+C24010
+popad
+mov [edi+2C],00000000
+
+exit2:
+jmp returnhere2
+
+"libiworld.dll"+C25ABF:
+jmp newmem2
+nop 5
+returnhere2:
+
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+newmem:
+originalcode:
+pushad
+push 00
+push 03//樣式
+mov ecx,[libEngine.dll+138DC00]
+MOV ECX,[ECX+28]
+MOV ECX,[ECX+C]
+call libiworld.dll+C24010
+popad
+mov [edi+34],2
+mov edx,[edi+34]
+cmp edx,01
+exit:
+jmp returnhere
+"libiworld.dll"+C257CC:
+jmp newmem
+nop
+returnhere:
+
+[DISABLE]
+dealloc(newmem2)
+"libiworld.dll"+C25ABF:
+db 8B 57 34 C7 47 2C 00 00 00 00
+//mov edx,[edi+34]
+//mov [edi+2C],00000000
+dealloc(newmem)
+"libiworld.dll"+C257CC:
+db 8B 57 34 83 FA 01
+//mov edx,[edi+34]
+//cmp edx,01
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>4</ID>
+      <Description>"加快瞄準"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//從這裡到 '[DISABLE]' 的指令將被用來啟用作弊功能
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //這是已分配的記憶體，你具有存取、寫入、執行的權限
+//將您的指令放在這裡
+
+originalcode:
+movss [edi+44],xmm0
+mov [edi+44],0
+exit:
+jmp returnhere
+
+"libiworld.dll"+C259CC:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//從這裡到程式碼結尾的指令將用於禁用作弊
+dealloc(newmem)
+"libiworld.dll"+C259CC:
+db F3 0F 11 47 44
+//movss [edi+44],xmm0
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1807637074</ID>
+      <Description>"無需槍械自瞄"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+libiworld.dll+C253E8:
+nop
+nop
+nop
+nop
+nop
+nop
+[DISABLE]
+libiworld.dll+C253E8:
+je libiworld.dll+C25BB2
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1807637075</ID>
+      <Description>"破解雲服部分地圖的自瞄限制"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+libiworld.dll+C251AC:
+nop
+nop
+[DISABLE]
+libiworld.dll+C251AC:
+jne libiworld.dll+C251C0
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1807637076</ID>
+      <Description>"允許隔墻瞄準"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+libSandboxEngine.dll+FBC11F:
+jmp libSandboxEngine.dll+FBC1FC
+nop
+[DISABLE]
+libSandboxEngine.dll+FBC11F:
+je libSandboxEngine.dll+FBC1FC
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+  <Comments>libiworld.dll+C2530A 
+</Comments>
+</CheatTable>
